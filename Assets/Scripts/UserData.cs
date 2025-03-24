@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+[System.Serializable]
+public class UserData
+{
+    public string UserName;
+    public int BalanceMoney;
+    public int Cash;
+
+    public UserData(string name, int balance, int cash)
+    {
+        UserName = name;
+        BalanceMoney = balance;
+        Cash = cash;
+    }
+}
