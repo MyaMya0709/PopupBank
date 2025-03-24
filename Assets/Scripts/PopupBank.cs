@@ -15,8 +15,8 @@ public class PopupBank : MonoBehaviour
     public GameObject Deposit;
     public GameObject Withdraw;
     public GameObject ErrorPopup;
-    public TMP_Text InputComstom;
-    public TMP_Text OutputComstom;
+    public TMP_InputField InputCustom;
+    public TMP_InputField OutputCustom;
 
     // Start is called before the first frame update
     void Start()
@@ -41,15 +41,24 @@ public class PopupBank : MonoBehaviour
             gameManager.UserData.Cash -= cash;
             Refresh();
         }
-        else if (InputComstom != null && int.TryParse(InputComstom.text))
-        {
-            cash = int.TryParse(InputComstom.text);
-        }
         else
         {
             OnPopup();
         }
         
+    }
+
+    public void InputCustomCash()
+    {
+        if (InputCustom.text != null && int.TryParse(InputCustom.text, out int result))
+        {
+            InputCash(result);
+            InputCustom.text = null;
+        }
+        else
+        {
+            OnPopup();
+        }
     }
 
     public void OutputCash(int cash)
@@ -59,6 +68,19 @@ public class PopupBank : MonoBehaviour
             gameManager.UserData.BalanceMoney -= cash;
             gameManager.UserData.Cash += cash;
             Refresh();
+        }
+        else
+        {
+            OnPopup();
+        }
+    }
+
+    public void OutputCustomCash()
+    {
+        if (OutputCustom.text != null && int.TryParse(OutputCustom.text, out int result))
+        {
+            OutputCash(result);
+            OutputCustom.text = null;
         }
         else
         {
