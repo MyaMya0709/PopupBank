@@ -8,22 +8,29 @@ using UnityEngine.UI;
 public class PopupBank : MonoBehaviour
 {
     GameManager gameManager;
+    [Header("UserMoney")]
     public TMP_Text TMP_Name;
     public TMP_Text TMP_Balance;
     public TMP_Text TMP_Cash;
+
+    [Header("UI")]
     public GameObject Buttons;
     public GameObject Deposit;
     public GameObject Withdraw;
+    public GameObject ATM;
+    public GameObject LoginMenu;
+
+    [Header("Popup")]
     public GameObject ErrorPopup;
-    public TMP_InputField InputCustom;
-    public TMP_InputField OutputCustom;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.Instance;
+        StartBank();
         Refresh();
     }
+
     //현재 유저데이터를 가져온다. 
     public void Refresh()
     {
@@ -32,6 +39,7 @@ public class PopupBank : MonoBehaviour
         TMP_Cash.text = gameManager.UserData.Cash.ToString("N0");
     }
 
+    //지정 입금 버튼
     public void InputCash(int cash)
     {
 
@@ -39,6 +47,7 @@ public class PopupBank : MonoBehaviour
         {
             gameManager.UserData.BalanceMoney += cash;
             gameManager.UserData.Cash -= cash;
+            gameManager.SaveUserData(gameManager.UserData);
             Refresh();
         }
         else
@@ -48,7 +57,8 @@ public class PopupBank : MonoBehaviour
         
     }
 
-    public void InputCustomCash()
+    //입력 입금 버튼
+    public void InputCustomCash(TMP_InputField InputCustom)
     {
         if (InputCustom.text != null && int.TryParse(InputCustom.text, out int result))
         {
@@ -61,12 +71,14 @@ public class PopupBank : MonoBehaviour
         }
     }
 
+    //지정 출금 버튼
     public void OutputCash(int cash)
     {
         if (gameManager.UserData.BalanceMoney >= cash)
         {
             gameManager.UserData.BalanceMoney -= cash;
             gameManager.UserData.Cash += cash;
+            gameManager.SaveUserData(gameManager.UserData);
             Refresh();
         }
         else
@@ -75,7 +87,8 @@ public class PopupBank : MonoBehaviour
         }
     }
 
-    public void OutputCustomCash()
+    //입력 출금 버튼
+    public void OutputCustomCash(TMP_InputField OutputCustom)
     {
         if (OutputCustom.text != null && int.TryParse(OutputCustom.text, out int result))
         {
@@ -86,6 +99,16 @@ public class PopupBank : MonoBehaviour
         {
             OnPopup();
         }
+    }
+
+    public void StartBank()
+    {
+        LoginMenu.SetActive(true);
+        Buttons.SetActive(false);
+        Withdraw.SetActive(false);
+        Deposit.SetActive(false);
+        ErrorPopup.SetActive(false);
+
     }
 
     //입금창 버튼

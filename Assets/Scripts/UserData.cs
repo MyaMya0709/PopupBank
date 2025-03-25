@@ -6,6 +6,8 @@ using UnityEngine.Rendering;
 [System.Serializable]
 public class UserData
 {
+    public string UserID;
+    public string UserPW;
     public string UserName;
     public int BalanceMoney;
     public int Cash;
