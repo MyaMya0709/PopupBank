@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
         {
             string Json_UserData = File.ReadAllText(GeneratePath(userID));
             UserData = JsonUtility.FromJson<UserData>(Json_UserData);
-            Debug.Log($"불러온 데이터 - 이름: {UserData.UserName}, 통장잔액: {UserData.BalanceMoney}, 현금: {UserData.Cash}");
+            Debug.Log
+            ($"불러온 데이터 - 이름: {UserData.UserName}, 통장잔액: {UserData.BalanceMoney}, 현금: {UserData.Cash}");
         }
         else
         {

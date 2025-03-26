@@ -120,11 +120,7 @@ public class PopupBank : MonoBehaviour
     //로그인 버튼
     public void OnLogin()
     {
-        if (gameManager.UserData.UserName == TMP_Name.text)
-        {
-            OnMainWindow();
-        }
-            
+        OnMainWindow();
     }
 
     //입금창 버튼
@@ -144,7 +140,9 @@ public class PopupBank : MonoBehaviour
     //메인창 버튼
     public void OnMainWindow()
     {
+        ATM.SetActive(true);
         Buttons.SetActive(true);
+        LoginMenu.SetActive(false);
         Withdraw.SetActive(false);
         Deposit.SetActive(false);
     }
@@ -166,6 +164,7 @@ public class PopupBank : MonoBehaviour
     {
         gameManager.UserData.UserID = TMP_ID.text;
         gameManager.UserData.UserPW = TMP_PW.text;
+        gameManager.SaveUserData(gameManager.UserData);
         OnSignUpPopUp();
     }
 }

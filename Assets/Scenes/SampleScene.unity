@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &104834127
 RectTransform:
   m_ObjectHideFlags: 0
@@ -423,7 +423,6 @@ RectTransform:
   - {fileID: 615843955}
   - {fileID: 1395552663}
   - {fileID: 1973021810}
-  - {fileID: 1260203252}
   m_Father: {fileID: 1860209881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3173,9 +3172,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 635817965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -30}
   m_SizeDelta: {x: 80, y: 60}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &673688724
@@ -3424,7 +3423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &777463428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5260,9 +5259,9 @@ RectTransform:
   - {fileID: 2061440731}
   m_Father: {fileID: 615843955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 95, y: -30}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1084200854
@@ -5948,7 +5947,7 @@ RectTransform:
   m_Children:
   - {fileID: 1107981753}
   - {fileID: 838476481}
-  m_Father: {fileID: 104834127}
+  m_Father: {fileID: 1860209881}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6696,9 +6695,9 @@ RectTransform:
   - {fileID: 840183866}
   m_Father: {fileID: 2140341610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -150}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1380954500
@@ -6955,11 +6954,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1860209882}
         m_TargetAssemblyTypeName: PopupBank, Assembly-CSharp
-        m_MethodName: InputCustomCash
-        m_Mode: 2
+        m_MethodName: OnLogin
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 2072767889}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7495,9 +7494,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 615843955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 5, y: -30}
   m_SizeDelta: {x: 80, y: 60}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1529691842
@@ -8029,9 +8028,9 @@ RectTransform:
   - {fileID: 1709091061}
   m_Father: {fileID: 2140341610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1566026516
@@ -9485,6 +9484,7 @@ RectTransform:
   - {fileID: 1588754760}
   - {fileID: 1534646357}
   - {fileID: 104834127}
+  - {fileID: 1260203252}
   m_Father: {fileID: 1189064118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9504,8 +9504,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65776f355fe8ab24c897852784290166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TMP_ID: {fileID: 2072767889}
-  TMP_PW: {fileID: 1084200854}
+  TMP_ID: {fileID: 1825831447}
+  TMP_PW: {fileID: 522214583}
   TMP_Name: {fileID: 838058268}
   TMP_Balance: {fileID: 1883476090}
   TMP_Cash: {fileID: 1322376571}
@@ -10754,7 +10754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1254902, g: 0.44705886, b: 0.59607846, a: 1}
+  m_Color: {r: 0.59607846, g: 0.21652876, b: 0.12549019, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11231,9 +11231,9 @@ RectTransform:
   - {fileID: 1535743415}
   m_Father: {fileID: 635817965}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 95, y: -30}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2072767891
@@ -11579,7 +11579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2140341610
 RectTransform:
   m_ObjectHideFlags: 0
