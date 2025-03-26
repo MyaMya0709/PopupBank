@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
 
     public UserData UserData { get; set; }
 
-    
-
     // Start is called before the first frame update
     public void Awake()
     {
@@ -25,12 +23,12 @@ public class GameManager : MonoBehaviour
 
         //인스턴스가 없으면 현재 인스턴스 설정
         Instance = this;
-        LoadUserData("최동호");
+        LoadUserData("chlehdgh96");
 
         if (UserData == null)
         {
             //userdata 인스턴스
-            UserData = new UserData("최동호", 50000, 100000);
+            UserData = new UserData("chlehdgh96","0000","최동호", 50000, 100000);
             SaveUserData(UserData);
         }
     }
@@ -39,16 +37,16 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private string GeneratePath(string userName)
+    private string GeneratePath(string userID)
     {
         //return Application.persistentDataPath + "/" + userName + ".json";
-        return Application.dataPath + "/" + userName + ".json";
+        return Application.dataPath + "/" + userID + ".json";
     }
 
     public void SaveUserData(UserData userData)
     {
         string Json_UserData = JsonUtility.ToJson(userData);
-        File.WriteAllText(GeneratePath(userData.UserName), Json_UserData);
+        File.WriteAllText(GeneratePath(userData.UserID), Json_UserData);
 
         //PlayerPrefs.SetString("UserName", userData.UserName);
         //PlayerPrefs.SetInt("BalanceMoney", userData.BalanceMoney);
@@ -58,11 +56,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("데이터 저장 완료");
     }
 
-    public void LoadUserData(string userName)
+    public void LoadUserData(string userID)
     {
-        if (File.Exists(GeneratePath(userName)))
+        if (File.Exists(GeneratePath(userID)))
         {
-            string Json_UserData = File.ReadAllText(GeneratePath(userName));
+            string Json_UserData = File.ReadAllText(GeneratePath(userID));
             UserData = JsonUtility.FromJson<UserData>(Json_UserData);
             Debug.Log($"불러온 데이터 - 이름: {UserData.UserName}, 통장잔액: {UserData.BalanceMoney}, 현금: {UserData.Cash}");
         }

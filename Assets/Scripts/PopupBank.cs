@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class PopupBank : MonoBehaviour
 {
     GameManager gameManager;
-    [Header("UserMoney")]
+    [Header("UserInfo")]
+    public TMP_InputField TMP_ID;
+    public TMP_InputField TMP_PW;
     public TMP_Text TMP_Name;
     public TMP_Text TMP_Balance;
     public TMP_Text TMP_Cash;
@@ -22,6 +24,7 @@ public class PopupBank : MonoBehaviour
 
     [Header("Popup")]
     public GameObject ErrorPopup;
+    public GameObject SignUpPopup;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +55,7 @@ public class PopupBank : MonoBehaviour
         }
         else
         {
-            OnPopup();
+            OnErrorPopup();
         }
         
     }
@@ -67,7 +70,7 @@ public class PopupBank : MonoBehaviour
         }
         else
         {
-            OnPopup();
+            OnErrorPopup();
         }
     }
 
@@ -83,7 +86,7 @@ public class PopupBank : MonoBehaviour
         }
         else
         {
-            OnPopup();
+            OnErrorPopup();
         }
     }
 
@@ -97,18 +100,31 @@ public class PopupBank : MonoBehaviour
         }
         else
         {
-            OnPopup();
+            OnErrorPopup();
         }
     }
 
+    //시작시 로그인 메뉴
     public void StartBank()
     {
         LoginMenu.SetActive(true);
+        ATM.SetActive(false);
         Buttons.SetActive(false);
         Withdraw.SetActive(false);
         Deposit.SetActive(false);
         ErrorPopup.SetActive(false);
+        SignUpPopup.SetActive(false);
 
+    }
+
+    //로그인 버튼
+    public void OnLogin()
+    {
+        if (gameManager.UserData.UserName == TMP_Name.text)
+        {
+            OnMainWindow();
+        }
+            
     }
 
     //입금창 버튼
@@ -133,10 +149,23 @@ public class PopupBank : MonoBehaviour
         Deposit.SetActive(false);
     }
 
-    //팝업창 띄우고 내리기
-    public void OnPopup()
+    //금액 오류 팝업창 띄우고 내리기
+    public void OnErrorPopup()
     {
         ErrorPopup.SetActive(!ErrorPopup.activeSelf);
     }
 
+    //회원가입 팝업창 띄우고 내리기
+    public void OnSignUpPopUp()
+    {
+        SignUpPopup.SetActive(!SignUpPopup.activeSelf);
+    }
+
+    //회원가입 하기
+    public void SignUp()
+    {
+        gameManager.UserData.UserID = TMP_ID.text;
+        gameManager.UserData.UserPW = TMP_PW.text;
+        OnSignUpPopUp();
+    }
 }

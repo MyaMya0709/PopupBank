@@ -12,8 +12,10 @@ public class UserData
     public int BalanceMoney;
     public int Cash;
 
-    public UserData(string name, int balance, int cash)
+    public UserData(string ID, string PW, string name, int balance, int cash)
     {
+        UserID = ID;
+        UserPW = PW;
         UserName = name;
         BalanceMoney = balance;
         Cash = cash;
